@@ -4,7 +4,7 @@
 
 [ChartJS](http://www.chartjs.org/)と[ニフティクラウド mobile backend](http://mb.cloud.nifty.com/)を使ってセンサーデータをグラフ表示します。
 
-![Chartjs]()
+![chart](https://github.com/hounenhounen/ChartNcmbJs/blob/master/chart.png)
 
 index.htmlをブラウザ表示すればグラフが表示されます。
 
