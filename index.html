@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="ncmb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script>
+        var data = {
+            labels: [],
+            datasets: [
+                {
+                    label: "Prime and Fibonacci",
+                    fillColor: "rgba(251,180,196,0.2)",
+                    strokeColor: "rgba(254,230,170,1)",
+                    pointColor: "rgba(254,230,170,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: []
+                }
+            ]
+        };
+      function displayLineChart() {       
+        var ncmb = new NCMB("YOUR_APPLICATIONKEY", "YOUR_CLIENTKEY");
+
+        //プレイヤーがTaroのスコアを降順で取得
+        var Temperature = ncmb.DataStore("Temperature");
+        Temperature.order("date", true)
+                .limit(120)
+                .fetchAll()
+                .then(function(results){
+                    console.log("Successfully retrieved " + results.length + " scores.");
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        data.labels[i] = i;
+                        data.datasets[0].data[i] =  object.temperature;
+                    }
+                    var ctx = document.getElementById("lineChart").getContext("2d");
+                    var options = { };
+                    var lineChart = new Chart(ctx).Line(data, {
+                        scaleShowVerticalLines: false,
+                        scaleShowHorizontalLines: false,
+                        scaleOverride : true,
+                        scaleSteps : 10,
+                        scaleStepWidth : 0.1,
+                        scaleStartValue : 0.0, 
+                    });
+
+                })
+                .catch(function(err){
+                    console.log(err);
+                });
+
+      }
+
+    </script>
+</head>
+<body onload="displayLineChart();">
+    <div class="box">
+        <canvas id="lineChart" height="450" width="720"></canvas>
+    </div>
+</body>
+</html>
