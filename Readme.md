@@ -1,6 +1,6 @@
 # ChartNCMBJSについて
 
-このリポジトリは[つっぱり棒 × Raspberry Pi × 3GPI × Nifty Cloud Mobile Backend　ワークショップ・ハッカソン(https://ouch-hack.doorkeeper.jp/events/45161)で使うリポジトリです。
+このリポジトリは[つっぱり棒 × Raspberry Pi × 3GPI × Nifty Cloud Mobile Backend　ワークショップ・ハッカソン](https://ouch-hack.doorkeeper.jp/events/45161)で使うリポジトリです。
 
 [ChartJS](http://www.chartjs.org/)と[ニフティクラウド mobile backend](http://mb.cloud.nifty.com/)を使ってセンサーデータをグラフ表示します。
 
